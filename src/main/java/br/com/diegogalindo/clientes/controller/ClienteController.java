@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
 import br.com.diegogalindo.clientes.model.Cliente;
 import br.com.diegogalindo.clientes.repository.ClienteRepository;
@@ -55,7 +54,7 @@ public class ClienteController {
 
     @GetMapping("/cadastrar")
     public ModelAndView cadastrar(){
-        ModelAndView modelAndView = new ModelAndView("cliente/cadastro");
+        ModelAndView modelAndView = new ModelAndView("cliente/formulario");
         
         modelAndView.addObject("cliente", new Cliente());
 
@@ -73,7 +72,7 @@ public class ClienteController {
 
     @GetMapping("/{id}/editar")
     public ModelAndView editar(@PathVariable Long id){
-        ModelAndView modelAndView = new ModelAndView("cliente/edicao");
+        ModelAndView modelAndView = new ModelAndView("cliente/formulario");
 
         Cliente cliente = clienteRepository.getReferenceById(id);
 

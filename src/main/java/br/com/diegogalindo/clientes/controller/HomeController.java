@@ -1,5 +1,8 @@
 package br.com.diegogalindo.clientes.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.ModelMap;
@@ -15,7 +18,17 @@ public class HomeController {
     
 
     @GetMapping("/")
-    public String home(){
+    public String home(ModelMap model){
+        model.addAttribute("boasVindas", "Bem vindo ao curso de Spring com Thymeleaf");
+
+        List<String> aulas = new ArrayList<>();
+        aulas.add("Aula 01 - Introdução");
+        aulas.add("Aula 02 - Template de engines");
+        aulas.add("Aula 03 - Arquivos estáticos");
+        aulas.add("Aula 05 - Exibindo  Informações");
+    
+        model.addAttribute("aulas",aulas);
+
         return "home";
     }
 
