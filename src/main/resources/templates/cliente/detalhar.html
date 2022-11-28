@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html th:replace="~{layout :: layout (~{::title}, ~{::main})}">
 <head>
-   <title>Spring Fundamentos- Detalhes do cliente</title>
+   <title th:text="#{detalhar.title}"></title>
 </head>
 <body>
 
       <main class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1>Detalhes do cliente</h1>
+                <h1 th:text="#{detalhar.header}"></h1>
             </div>
         </div>
 
@@ -17,14 +17,19 @@
                 <div class="card">
                     <h5 class="card-header" th:text="${cliente.nome}"></h5>
                     <div class="card-body">
+                      
+                       <p>
+                        <span th:text="#{detalhar.profissao}"></span>
+                        <span th:text="${cliente.profissao}"></span>
+                       </p>
+                      
                       <p>
-                        Profissão: <span th:text="${cliente.profissao}" ></span>
+                        <span th:text="#{detalhar.dataNascimento}"></span>
+                        <span th:text="${cliente.dataNascimento}"></span>
+                        
                       </p>
-                      <p>
-                        Data de Nascimento: <span th:text="${cliente.dataNascimento}" ></span>
-                      </p>
-                      <a href="" class="btn btn-warning">Editar</a>
-                      <a href="" class="btn btn-danger">Excluir</a>
+                      <a href="" class="btn btn-warning" th:text="#{detalhar.botao.edit}"></a>
+                      <a href="" class="btn btn-danger" th:text="#{detalhar.botao.excluir}"></a>
                     </div>
                   </div>
             </div-col-sm-12>
